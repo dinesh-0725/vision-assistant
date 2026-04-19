@@ -1,0 +1,702 @@
+/* src/pages/TalkingCalculator/TalkingCalculator.css */
+.talking-calculator-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #1a2c38, #243b55);
+  color: white;
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+
+/* Compact Header */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(15, 32, 39, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  height: 70px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-btn {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ff5252);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Compact Status Bar */
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 32, 39, 0.95);
+  padding: 0.8rem 1.5rem;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  text-align: center;
+  font-size: 0.9rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Content */
+.calculator-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Compact Header */
+.calculator-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.calculator-header h2 {
+  color: #00ffff;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.calculator-header p {
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+/* Compact Status Message */
+.status-message {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #00ffff;
+}
+
+/* Main Layout - Two Columns */
+.calculator-main-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 1.5rem;
+  min-height: calc(100vh - 200px);
+}
+
+/* Left Column */
+.calculator-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Right Column */
+.calculator-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Compact Display Section */
+.calculator-display-section.compact {
+  background: rgba(15, 32, 39, 0.8);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.expression-display {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  min-height: 25px;
+  margin-bottom: 0.8rem;
+  word-break: break-all;
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+}
+
+.result-display {
+  font-size: 2.2rem;
+  font-weight: 300;
+  text-align: right;
+  min-height: 60px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  color: #00ffff;
+  padding: 0.5rem;
+  background: rgba(0, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Compact Voice Controls */
+.voice-controls-section.compact {
+  background: rgba(15, 32, 39, 0.8);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.voice-controls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #00ffff;
+  font-weight: 600;
+}
+
+.voice-toggle-btn {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.voice-toggle-btn.active {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.voice-toggle-btn:hover {
+  background: rgba(0, 255, 255, 0.2);
+}
+
+.voice-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.voice-command-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.voice-command-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Compact Calculator Buttons */
+.calculator-buttons-section.compact {
+  background: rgba(15, 32, 39, 0.8);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  flex: 1;
+}
+
+.calculator-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  height: 100%;
+}
+
+.button-row.compact {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.8rem;
+  flex: 1;
+}
+
+/* Compact Calculator Buttons */
+.btn-number.compact,
+.btn-operation.compact,
+.btn-equals.compact,
+.btn-clear.compact,
+.btn-clear-entry.compact {
+  padding: 0.8rem 0.3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-number.compact {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-number.compact:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-operation.compact {
+  background: rgba(0, 150, 199, 0.3);
+  color: #b3e0ff;
+  border: 1px solid rgba(0, 200, 255, 0.4);
+}
+
+.btn-operation.compact:hover {
+  background: rgba(0, 150, 199, 0.4);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-equals.compact {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.btn-equals.compact:hover {
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  transform: translateY(-2px);
+}
+
+.btn-clear.compact {
+  background: linear-gradient(135deg, #f44336, #c62828);
+  color: white;
+  border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.btn-clear.compact:hover {
+  background: linear-gradient(135deg, #c62828, #b71c1c);
+  transform: translateY(-2px);
+}
+
+.btn-clear-entry.compact {
+  background: linear-gradient(135deg, #FF9800, #EF6C00);
+  color: white;
+  border: 1px solid rgba(255, 152, 0, 0.4);
+}
+
+.btn-clear-entry.compact:hover {
+  background: linear-gradient(135deg, #EF6C00, #E65100);
+  transform: translateY(-2px);
+}
+
+/* Compact History Section */
+.calculator-history-section.compact {
+  background: rgba(15, 32, 39, 0.8);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-header h3 {
+  color: #00ffff;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.clear-history-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.clear-history-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.empty-state.compact {
+  text-align: center;
+  padding: 2rem;
+  opacity: 0.7;
+  font-style: italic;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.history-list.compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow-y: auto;
+  max-height: 300px;
+  padding-right: 0.5rem;
+}
+
+.history-list.compact::-webkit-scrollbar {
+  width: 6px;
+}
+
+.history-list.compact::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.history-list.compact::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.history-item.compact {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.8rem;
+  border-left: 3px solid #00ffff;
+  transition: all 0.2s ease;
+}
+
+.history-item.compact:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.history-expression {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.history-result {
+  color: #00ffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.history-time {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+/* Compact Keyboard Shortcuts */
+.keyboard-shortcuts-section.compact {
+  background: rgba(15, 32, 39, 0.8);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.keyboard-shortcuts-section.compact h3 {
+  color: #00ffff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.shortcuts-grid.compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.shortcut-item.compact {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.shortcut-key {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%;
+}
+
+.shortcut-description {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.9;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .calculator-main-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-row.compact {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator-content {
+    padding: 1rem;
+  }
+  
+  .calculator-main-layout {
+    gap: 1rem;
+  }
+  
+  .button-row.compact {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .btn-number.compact,
+  .btn-operation.compact,
+  .btn-equals.compact,
+  .btn-clear.compact,
+  .btn-clear-entry.compact {
+    padding: 0.7rem 0.2rem;
+    font-size: 1rem;
+    min-height: 40px;
+  }
+  
+  .voice-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  .shortcuts-grid.compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .button-row.compact {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .shortcuts-grid.compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .back-btn, .logout-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* Add to TalkingCalculator.css */
+
+.voice-tips {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.voice-tips p {
+  margin: 0;
+}
+
+.voice-tips strong {
+  color: #00ffff;
+}
+/* Add to TalkingCalculator.css */
+
+.voice-examples {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+
+.example-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.example-cmd {
+  color: #00ffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.example-result {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+}
+
+/* Update voice examples section */
+.keyboard-shortcuts-section.compact h3 {
+  margin-bottom: 1rem;
+}
+
+.shortcut-item.compact {
+  min-height: auto;
+  padding: 0.8rem;
+}
+
+.shortcut-key {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.shortcut-description {
+  font-size: 0.8rem;
+}
+
+
+/* Add to TalkingCalculator.css */
+
+.fast-buttons button {
+  transition: background-color 0.1s ease, transform 0.05s ease;
+}
+
+.fast-buttons button:active {
+  transform: scale(0.95);
+}
+
+/* Make button response faster */
+.btn-number, .btn-operation, .btn-equals, .btn-clear {
+  touch-action: manipulation;
+  user-select: none;
+}
+
+/* Remove any button delays */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure immediate visual feedback */
+.btn-number:active {
+  background-color: #4a5568 !important;
+}
+
+.btn-operation:active {
+  background-color: #2d3748 !important;
+}
+
+.btn-equals:active {
+  background-color: #2c5282 !important;
+}

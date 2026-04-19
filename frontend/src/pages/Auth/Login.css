@@ -1,0 +1,740 @@
+/* Login.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.voice-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 20px;
+}
+
+.voice-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0px 0px 30px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00ffff;
+  margin-bottom: 25px;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+/* Status Message */
+.status {
+  font-size: 1.3rem;
+  margin: 25px 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.6;
+}
+
+/* Voice Control Section */
+.voice-control-section {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+}
+
+.voice-toggle-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.voice-toggle-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.voice-toggle-btn.active {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  animation: pulse 2s infinite;
+}
+
+.voice-toggle-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.mode-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.mode-text {
+  color: #00ffaa;
+  font-weight: bold;
+  background: rgba(0, 255, 170, 0.1);
+  padding: 4px 12px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 170, 0.3);
+}
+
+.listening-status {
+  color: #00ffaa;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.spoken-text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border-left: 3px solid #00ffaa;
+  text-align: left;
+}
+
+.spoken-label {
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 5px;
+}
+
+.spoken-text strong {
+  color: #00ffaa;
+  font-weight: 600;
+}
+
+.speaking-indicator {
+  color: #ffaa00;
+  font-size: 12px;
+  margin-left: 8px;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 87, 108, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(245, 87, 108, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 87, 108, 0);
+  }
+}
+
+/* Code Display Section */
+.code-display-section {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(0, 255, 170, 0.3);
+}
+
+.code-display {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  min-height: 60px;
+  align-items: center;
+  padding: 10px;
+}
+
+.code-letter {
+  background: rgba(0, 255, 170, 0.2);
+  color: #00ffaa;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 255, 170, 0.4);
+  text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+}
+
+.code-placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  font-size: 16px;
+}
+
+.code-hint {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.code-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.action-small {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 120px;
+}
+
+.action-small:hover:not(:disabled) {
+  background: rgba(0, 255, 170, 0.2);
+  border-color: #00ffaa;
+  color: #00ffaa;
+  transform: translateY(-2px);
+}
+
+.action-small:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Input Section */
+.input-section {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: rgb(18, 1, 1);
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #00ffaa;
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+}
+
+.input-field::placeholder {
+  color: rgba(35, 28, 28, 0.5);
+}
+
+.input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 15px;
+  /* background: linear-gradient(135deg, #00bcd4, #0097a7); */
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(3, 1, 12);
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+}
+
+.action-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0097a7, #00838f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nav-btn {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(13, 1, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: rgba(0, 255, 170, 0.1);
+  border-color: #00ffaa;
+  color: #020b08;
+  transform: translateY(-2px);
+}
+
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .voice-card {
+    padding: 30px 25px;
+    margin: 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .status {
+    font-size: 1.1rem;
+    min-height: 70px;
+    padding: 12px;
+  }
+  
+  .code-letter {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  
+  .input-field {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .action-btn {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .voice-toggle-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .nav-btn {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .voice-card {
+    padding: 25px 20px;
+    margin: 10px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .status {
+    font-size: 1rem;
+    min-height: 60px;
+    padding: 10px;
+  }
+  
+  .code-letter {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  .mode-indicator {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .mode-text, .listening-status {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .code-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .action-small {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .voice-card {
+    max-width: 600px;
+    padding: 50px;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .status {
+    font-size: 1.5rem;
+    min-height: 90px;
+  }
+  
+  .code-letter {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  
+  .input-field {
+    font-size: 20px;
+    padding: 18px;
+  }
+  
+  .action-btn {
+    font-size: 20px;
+    padding: 18px;
+  }
+}
+
+
+/* Add these styles to your existing Login.css file */
+
+/* Voice Control Section */
+.voice-control-section {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+}
+
+.voice-toggle-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.voice-toggle-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.voice-toggle-btn.active {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  animation: pulse 2s infinite;
+}
+
+.voice-toggle-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.mode-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.mode-text {
+  color: #00ffaa;
+  font-weight: bold;
+  background: rgba(0, 255, 170, 0.1);
+  padding: 4px 12px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 170, 0.3);
+}
+
+.listening-status {
+  color: #00ffaa;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.spoken-text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  border-left: 3px solid #00ffaa;
+  text-align: left;
+}
+
+.spoken-label {
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 5px;
+}
+
+.spoken-text strong {
+  color: #00ffaa;
+  font-weight: 600;
+}
+
+/* Voice Hints */
+.voice-hints {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.hint-text {
+  color: #00ffaa;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.command-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.command-chip {
+  background: rgba(0, 255, 170, 0.1);
+  color: #00ffaa;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(0, 255, 170, 0.3);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 87, 108, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(245, 87, 108, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 87, 108, 0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .command-chips {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .command-chip {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* Add to existing Login.css */
+
+.input-label {
+  text-align: left;
+  color: rgb(0, 0, 0);
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.input-hint {
+  text-align: left;
+  color: #00ffaa;
+  font-size: 12px;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+.input-ready {
+  background: rgba(0, 255, 170, 0.1);
+  color: #00ffaa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+  border: 1px solid rgba(0, 255, 170, 0.3);
+  font-weight: 600;
+}
+
+/* Make input fields more visible */
+.input-field {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+
+/* FIX: Make Login button clearly visible */
+.action-btn {
+  background: linear-gradient(135deg, #00ffaa, #00c9a7) !important;
+  color: #002b2b !important;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0, 255, 170, 0.45);
+  align-content: center;
+}
+
+.action-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00e6c3, #00bfa5) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 255, 170, 0.6);
+}
+
+.action-btn:disabled {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #666 !important;
+  box-shadow: none;
+}
+
+
+/* =========================
+   FINAL UI POLISH FIX
+   ========================= */
+
+/* Input container – remove harsh white */
+.input-section {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(0, 255, 170, 0.25);
+  box-shadow: inset 0 0 20px rgba(0, 255, 170, 0.05);
+}
+
+/* Input field – dark glass look */
+.input-field {
+  background: rgba(0, 0, 0, 0.55) !important;
+  color: #eaffff !important;
+  border: 2px solid rgba(0, 255, 170, 0.35);
+}
+
+.input-field::placeholder {
+  color: rgba(180, 255, 245, 0.5);
+}
+
+/* Login button – premium neon */
+.action-btn {
+  background: linear-gradient(135deg, #00ffd5, #00c9a7) !important;
+  color: #003b3b !important;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 12px rgba(0, 255, 200, 0.6),
+    0 6px 25px rgba(0, 255, 170, 0.45);
+}
+
+.action-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00ffe1, #00bfa5) !important;
+  box-shadow:
+    0 0 18px rgba(0, 255, 200, 0.8),
+    0 8px 30px rgba(0, 255, 170, 0.65);
+}
+
+/* Secondary navigation buttons */
+.nav-btn {
+  background: rgba(0, 0, 0, 0.4);
+  color: #bfffee;
+  border: 1px solid rgba(0, 255, 170, 0.25);
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: rgba(0, 255, 170, 0.12);
+  color: #00ffaa;
+  border-color: #00ffaa;
+}
+
+/* Status text box – softer contrast */
+.status {
+  background: rgba(0, 0, 0, 0.35);
+  color: #e6ffff;
+  border: 1px solid rgba(0, 255, 255, 0.15);
+}
